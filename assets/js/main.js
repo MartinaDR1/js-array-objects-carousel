@@ -38,12 +38,14 @@ images.forEach((image,i) => {
                 <h2>${image.title}</h2>
                 <p>${image.text}</p>
             </div>`
- 
 });
 
 //Seleziono tutte le immagini 
 const allImages = document.querySelectorAll ('.images');
 console.log(allImages);
+
+//Autoplay
+setInterval(autoplay,3000)
 
 //Attivo i bottini
 //Next
@@ -66,31 +68,51 @@ btnNext.addEventListener('click', function(){
     const nextImg = allImages[activeImage];
    
     nextImg.classList.add('active');  
+
 })
 
 //Prev
 btnPrev.addEventListener('click', function(){
     console.log('click');
-       // Seleziono l'immagine attiva
-       const currentImg = allImages[activeImage];
+    // Seleziono l'immagine attiva
+    const currentImg = allImages[activeImage];
 
-       // Rimuovo l'active
-       currentImg.classList.remove('active')
+    // Rimuovo l'active
+    currentImg.classList.remove('active')
    
-        //Loop per le immagini
-        if (activeImage === 0) {
-            activeImage = 4
-        } else {
-            activeImage--
-        }
+    //Loop per le immagini
+    if (activeImage === 0) {
+        activeImage = 4
+    } else {
+        activeImage--
+    }
 
-       //Selezione l'immagine successiva
-       const nextImg = allImages[activeImage];
+    //Selezione l'immagine successiva
+    const nextImg = allImages[activeImage];
    
-       nextImg.classList.add('active');  
+    nextImg.classList.add('active');  
 })
 
 
+function autoplay (){
+    // Seleziono l'immagine attiva
+    const currentImg = allImages[activeImage];
+
+    // Rimuovo l'active
+    currentImg.classList.remove('active')
+   
+    //Loop per le immagini
+    if (activeImage === 4) {
+        activeImage = 0
+    } else {
+        activeImage++
+    }
+
+    //Selezione l'immagine successiva
+    const nextImg = allImages[activeImage];
+   
+    nextImg.classList.add('active');  
+}
 
 
 
