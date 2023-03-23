@@ -25,6 +25,9 @@ const images = [
 
 //Seleziono elementi della DOM
 const sliderEl = document.querySelector (`.slider`);
+const btnNext = document.querySelector ('.next');
+const btnPrev = document.querySelector ('.prev')
+
 
 let activeImage= 0
 
@@ -34,10 +37,29 @@ images.forEach((image,i) => {
                 <img src="./assets/${image.image}" alt="">
             </div>`
  
+});
 
+//Seleziono tutte le immagini 
+const allImages = document.querySelectorAll ('.images');
+console.log(allImages);
+
+//Attivo i bottini
+btnNext.addEventListener('click', function(){
+    console.log('click');
+       // Seleziono l'immagine attiva
+       const currentImg = allImages[activeImage];
+
+       // Rimuovo l'active
+       currentImg.classList.remove('active')
+   
+       //Incremento
+       activeImage ++
+
+       //Selezione l'immagine successiva
+       const nextImg = allImages[activeImage];
+   
+       nextImg.classList.add('active');  
 })
-
-
 
 
 
