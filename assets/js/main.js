@@ -35,6 +35,8 @@ let activeImage= 0
 images.forEach((image,i) => {
     sliderEl.innerHTML += `<div class="images text-center mt-5 ${i === activeImage ? `active` : ``}">
                 <img src="./assets/${image.image}" alt="">
+                <h2>${image.title}</h2>
+                <p>${image.text}</p>
             </div>`
  
 });
