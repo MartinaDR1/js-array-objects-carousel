@@ -22,12 +22,7 @@
   <body>
 
     <div class="ms_container">
-      <div class="autoplay">
-        <button class="play"><i class="fa-regular fa-circle-play"></i></button>
-        <button class="stop"><i class="fa-regular fa-circle-stop"></i></button>
-        <button class="invert"><i class="fa-solid fa-rotate-left"></i></button>
-      </div>
-      <div class="slider">
+      <div class="slider ">
         <!--
         <div class="images">
            <img src="./assets/img/01.webp" alt="" class="active">
@@ -38,11 +33,17 @@
           </div>
         -->
       </div>
+      <div class="autoplay text-center m-3">
+        <button class="play"><i class="fa-regular fa-circle-play fa-xl fa-beat" style="--fa-animation-duration: 2s;" ></i></button>
+        <button class="invert"><i class="fa-solid fa-rotate-left fa-xl fa-spin"style="--fa-animation-direction: reverse;" ></i></button>
+        <button class="stop"><i class="fa-regular fa-circle-stop fa-xl fa-beat" style="--fa-animation-duration: 2s;" ></i></button>
+      </div>
+
       <nav class="controls d-flex justify-content-between">
         <button class="prev">
-          <i class="fas fa-arrow-left"></i>
+          <i class="fas fa-arrow-left fa-fade"></i>
         </button>
-        <div class="box border">
+        <div class="box">
           <img src="./assets/img/01.webp" alt="">
        
           <img src="./assets/img/02.webp" alt="">
@@ -54,7 +55,7 @@
           <img src="./assets/img/05.webp" alt="">
         </div>
         <button class="next">
-          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-arrow-right fa-fade"></i>
         </button>
       </nav>
     </div>

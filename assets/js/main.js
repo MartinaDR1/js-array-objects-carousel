@@ -35,10 +35,10 @@ let activeImage= 0
 
 // Ciclo e faccio apparire l'immagine con classe active
 images.forEach((image,i) => {
-    sliderEl.innerHTML += `<div class="images text-center mt-5 ${i === activeImage ? `active` : ``}">
+    sliderEl.innerHTML += `<div class="images text-center m-1 ${i === activeImage ? `active` : ``}">
+                <h2 class="color">${image.title}</h2>
                 <img src="./assets/${image.image}" alt="">
-                <h2>${image.title}</h2>
-                <p>${image.text}</p>
+                <p class="mt-2 ">${image.text}</p>
             </div>`
 });
 

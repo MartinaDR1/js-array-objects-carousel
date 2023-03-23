@@ -1,6 +1,8 @@
 body{
-    background-color: rgb(214, 171, 62);
+    background-color: rgb(231, 200, 121);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 .ms_container {
     max-width: 1200px;
     margin: auto;
@@ -16,12 +18,19 @@ body{
   object-fit:contain;
 }
 
+.color{
+    color: rgb(28, 85, 85);
+}
+
 .prev, .next {
     margin: 1rem;
     width: 1.5rem;
     aspect-ratio: 1 / 1;
+
+    background-color: transparent;
     border: transparent;
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,6 +39,7 @@ body{
 .box > img {
     width: 100px;
     height: 100px;
+    border-radius: 50px;
 }
 
 .autoplay button{
@@ -37,3 +47,4 @@ body{
     border: none;
     
 }
+
