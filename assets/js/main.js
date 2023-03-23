@@ -27,7 +27,9 @@ const images = [
 const sliderEl = document.querySelector (`.slider`);
 const btnNext = document.querySelector ('.next');
 const btnPrev = document.querySelector ('.prev')
-
+const playBtn = document.querySelector('.play')
+const stopBtn = document.querySelector('.stop')
+const invertBtn = document.querySelector('.invert')
 
 let activeImage= 0
 
@@ -45,56 +47,46 @@ const allImages = document.querySelectorAll ('.images');
 console.log(allImages);
 
 //Autoplay
-setInterval(autoplay,3000)
+const autoplay = setInterval(next,3000)
+
 
 //Attivo i bottini
 //Next
 btnNext.addEventListener('click', function(){
     console.log('click');
-    // Seleziono l'immagine attiva
-    const currentImg = allImages[activeImage];
-
-    // Rimuovo l'active
-    currentImg.classList.remove('active')
-   
-    //Loop per le immagini
-    if (activeImage === 4) {
-        activeImage = 0
-    } else {
-        activeImage++
-    }
-
-    //Selezione l'immagine successiva
-    const nextImg = allImages[activeImage];
-   
-    nextImg.classList.add('active');  
+    
+    next ()
 
 })
 
 //Prev
 btnPrev.addEventListener('click', function(){
     console.log('click');
-    // Seleziono l'immagine attiva
-    const currentImg = allImages[activeImage];
+    
+    prev()
+})
 
-    // Rimuovo l'active
-    currentImg.classList.remove('active')
-   
-    //Loop per le immagini
-    if (activeImage === 0) {
-        activeImage = 4
-    } else {
-        activeImage--
-    }
+//invert
+invertBtn.addEventListener('click', function(){
+    console.log('click');
+    clearInterval(autoplay)
+    setInterval(prev,3000)
+})
 
-    //Selezione l'immagine successiva
-    const nextImg = allImages[activeImage];
-   
-    nextImg.classList.add('active');  
+//Pause
+stopBtn.addEventListener('click', function(){
+    console.log('click');
+    clearInterval(autoplay)
+})
+
+//Play
+playBtn.addEventListener('click', function(){
+    console.log('click');
+    setInterval(prev,3000)
 })
 
 
-function autoplay (){
+function next(){
     // Seleziono l'immagine attiva
     const currentImg = allImages[activeImage];
 
@@ -102,7 +94,7 @@ function autoplay (){
     currentImg.classList.remove('active')
    
     //Loop per le immagini
-    if (activeImage === 4) {
+    if (activeImage === images.length - 1) {
         activeImage = 0
     } else {
         activeImage++
@@ -112,9 +104,29 @@ function autoplay (){
     const nextImg = allImages[activeImage];
    
     nextImg.classList.add('active');  
+
 }
 
+function prev (){
+        
+    // Seleziono l'immagine attiva
+    const currentImg = allImages[activeImage];
 
+    // Rimuovo l'active
+    currentImg.classList.remove('active')
+       
+    //Loop per le immagini
+    if (activeImage === 0) {
+        activeImage = images.length - 1
+    } else {
+        activeImage--
+    }
+    
+    //Selezione l'immagine successiva
+    const nextImg = allImages[activeImage];
+       
+    nextImg.classList.add('active');  
+}
 
 
 
