@@ -44,7 +44,30 @@ const allImages = document.querySelectorAll ('.images');
 console.log(allImages);
 
 //Attivo i bottini
+//Next
 btnNext.addEventListener('click', function(){
+    console.log('click');
+    // Seleziono l'immagine attiva
+    const currentImg = allImages[activeImage];
+
+    // Rimuovo l'active
+    currentImg.classList.remove('active')
+   
+    //Loop per le immagini
+    if (activeImage === 4) {
+        activeImage = 0
+    } else {
+        activeImage++
+    }
+
+    //Selezione l'immagine successiva
+    const nextImg = allImages[activeImage];
+   
+    nextImg.classList.add('active');  
+})
+
+//Prev
+btnPrev.addEventListener('click', function(){
     console.log('click');
        // Seleziono l'immagine attiva
        const currentImg = allImages[activeImage];
@@ -52,8 +75,12 @@ btnNext.addEventListener('click', function(){
        // Rimuovo l'active
        currentImg.classList.remove('active')
    
-       //Incremento
-       activeImage ++
+        //Loop per le immagini
+        if (activeImage === 0) {
+            activeImage = 4
+        } else {
+            activeImage--
+        }
 
        //Selezione l'immagine successiva
        const nextImg = allImages[activeImage];
