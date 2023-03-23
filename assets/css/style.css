@@ -8,10 +8,9 @@ img{
     max-height: 400px;
 }
 
-.images img:not(.active) {
+.images:not(.active) {
     display: none;
 }
-
 .prev, .next {
     margin: 1rem;
     width: 1.5rem;
