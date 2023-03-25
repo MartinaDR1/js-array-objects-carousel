@@ -55,6 +55,15 @@ console.log(allImages);
 //Autoplay
 const autoplay = setInterval(next,3000)
 
+//Se entro con il mouse all'interno del container...
+sliderEl.addEventListener('mouseenter',function(){
+    clearInterval(autoplay)
+})
+
+//Se esco...
+sliderEl.addEventListener('mouseleave',function(){
+    setInterval(next,3000)
+})
 
 //Attivo i bottini
 //Next
