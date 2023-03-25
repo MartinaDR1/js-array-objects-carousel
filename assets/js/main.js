@@ -30,6 +30,7 @@ const btnPrev = document.querySelector ('.prev')
 const playBtn = document.querySelector('.play')
 const stopBtn = document.querySelector('.stop')
 const invertBtn = document.querySelector('.invert')
+const thumbEl = document.querySelector('.box')
 
 let activeImage= 0
 
@@ -40,11 +41,16 @@ images.forEach((image,i) => {
                 <img src="./assets/${image.image}" alt="">
                 <p class="mt-2 ">${image.text}</p>
             </div>`
+
+    // Markup Thumbnails
+    const markupThumb = `<img src="./assets/${image.image}" alt="" class="${i === activeImage ? 'active' : ''}">`
+    thumbEl.innerHTML += markupThumb
 });
 
 //Seleziono tutte le immagini 
 const allImages = document.querySelectorAll ('.images');
 console.log(allImages);
+
 
 //Autoplay
 const autoplay = setInterval(next,3000)
@@ -105,6 +111,18 @@ function next(){
    
     nextImg.classList.add('active');  
 
+    //Seleziono l'immagine attiva della thumb
+    const currentThumb = document.querySelector('.box > img.active');
+
+    //Rimuovo l'active
+    currentThumb.classList.remove('active')
+
+    //Seleziono l'immagine successiva
+    const nextThumb = document.querySelectorAll('.box > img') [activeImage];
+
+    //Le assegno la classe active
+    nextThumb.classList.add('active')
+
 }
 
 function prev (){
@@ -126,6 +144,18 @@ function prev (){
     const nextImg = allImages[activeImage];
        
     nextImg.classList.add('active');  
+    
+    //Seleziono l'immagine attiva della thumb
+    const currentThumb = document.querySelector('.box > img.active');
+
+    //Rimuovo l'active
+    currentThumb.classList.remove('active')
+
+    //Seleziono l'immagine successiva
+    const nextThumb = document.querySelectorAll('.box > img') [activeImage];
+
+    //Le assegno la classe active
+    nextThumb.classList.add('active')
 }
 
 

@@ -48,3 +48,12 @@ body{
     
 }
 
+.box img.active
+{
+	border: 4px inset rgb(192, 231, 142);
+}
+
+.box img:not(.active)
+{
+	opacity: 0.5;
+}
